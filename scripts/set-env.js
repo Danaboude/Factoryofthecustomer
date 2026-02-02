@@ -12,9 +12,10 @@ const targetPathDev = path.join(envDirectory, 'environment.development.ts');
 
 const stripeKey = process.env.STRIPE_SECRET_KEY || '';
 
-if (!stripeKey && process.env.NODE_ENV === 'production') {
-    console.error('Error: STRIPE_SECRET_KEY environment variable is not set!');
-    process.exit(1);
+if (!stripeKey) {
+    console.warn('⚠️  Warning: STRIPE_SECRET_KEY environment variable is not set. Payments will fail.');
+} else {
+    console.log('✅ STRIPE_SECRET_KEY found.');
 }
 
 const envConfigFile = `export const environment = {
@@ -29,9 +30,13 @@ const envConfigFileDev = `export const environment = {
 };
 `;
 
-console.log('Generating environment files...');
+console.log('🚀 Generating environment files for build...');
 
-fs.writeFileSync(targetPath, envConfigFile);
-fs.writeFileSync(targetPathDev, envConfigFileDev);
-
-console.log(`Environment file generated at ${targetPath}`);
+try {
+    fs.writeFileSync(targetPath, envConfigFile);
+    fs.writeFileSync(targetPathDev, envConfigFileDev);
+    console.log(`✨ Environment files generated successfully at ${envDirectory}`);
+} catch (err) {
+    console.error('❌ Error writing environment files:', err);
+    process.exit(1);
+}
