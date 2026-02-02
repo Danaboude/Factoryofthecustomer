@@ -1,0 +1,92 @@
+<!-- Book Section (New Feature) -->
+<section class="py-24 bg-white overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-16 items-center justify-between">
+
+            <!-- Content Side -->
+            <div class="w-full lg:w-1/2 space-y-8 order-2 lg:order-1">
+                <div class="inline-flex items-center space-x-2">
+                    <span class="flex h-3 w-3 relative">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow"></span>
+                    </span>
+                    <span
+                        class="text-brand-dark-blue font-bold tracking-widest uppercase text-xs bg-brand-yellow/20 px-2 py-0.5 rounded">New
+                        Release</span>
+                </div>
+
+                <h2 class="text-5xl lg:text-7xl font-black tracking-tight text-gray-900">
+                    The Customer’s <br /> Truffle
+                </h2>
+
+                <div class="flex items-center space-x-4">
+                    <div class="h-px bg-gray-300 w-12"></div>
+                    <p class="text-xl text-brand-dark-blue font-medium">By Ives De Saeger</p>
+                </div>
+
+                <p class="text-lg text-gray-600 leading-relaxed font-light max-w-xl">
+                    Discover the secrets of customer-centric manufacturing. In a world of distraction, this book brings
+                    focus back to what truly matters: <strong class="text-gray-900">value for the customer.</strong>
+                </p>
+
+                <blockquote class="border-l-4 border-brand-dark-blue pl-6 py-2 italic text-gray-500 text-lg">
+                    "Find out what customers want and deliver solutions that meet those needs."
+                </blockquote>
+
+                <div class="pt-4">
+                    <a routerLink="/book"
+                        class="cursor-pointer group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-brand-dark-blue rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark-blue hover:bg-brand-yellow hover:text-brand-dark-blue hover:shadow-lg">
+                        <span>Order Your Copy</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Video Side (Book Frame) -->
+            <div class="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2 h-[600px] items-center">
+                <!-- Book Frame -->
+                <div class="relative w-[350px] h-[550px] perspective-1000 group">
+                    <div
+                        class="relative w-full h-full transition-transform duration-500 transform style-preserve-3d group-hover:rotate-y-[-5deg]">
+
+                        <!-- Book Cover (Front with Video) -->
+                        <div
+                            class="absolute inset-0 bg-slate-800 rounded-r-xl rounded-l-sm shadow-[25px_25px_50px_rgba(0,0,0,0.5)] overflow-hidden border-l-4 border-slate-700">
+                            <!-- Spine Crease -->
+                            <div
+                                class="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/50 to-transparent z-20 pointer-events-none">
+                            </div>
+
+                            <!-- Video Content -->
+                            <div class="h-full w-full bg-black relative">
+                                @if (videoSource()) {
+                                <video [src]="videoSource()" autoplay loop muted playsinline
+                                    class="w-full h-full object-cover opacity-90 mix-blend-screen"></video>
+                                } @else {
+                                <div class="flex flex-col items-center justify-center h-full text-gray-500 space-y-4">
+                                    <span class="loading-spinner"></span>
+                                    <span class="text-sm uppercase tracking-wider">Loading Preview...</span>
+                                </div>
+                                }
+                                <!-- Book Texture Overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10 pointer-events-none">
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
