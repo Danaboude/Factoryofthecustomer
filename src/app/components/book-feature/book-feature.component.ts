@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class BookFeatureComponent implements OnInit {
     protected videoSource = signal<string>('');
+    protected videoLoading = signal(true);
 
     @ViewChild('bookVideo') set bookVideo(content: ElementRef<HTMLVideoElement>) {
         if (content && content.nativeElement) {
@@ -18,7 +19,16 @@ export class BookFeatureComponent implements OnInit {
             content.nativeElement.play().catch(err => {
                 console.warn('Book video autoplay failed:', err);
             });
+
+            // If already loaded
+            if (content.nativeElement.readyState >= 3) {
+                this.videoLoading.set(false);
+            }
         }
+    }
+
+    onVideoLoad() {
+        this.videoLoading.set(false);
     }
 
     ngOnInit() {

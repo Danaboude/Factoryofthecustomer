@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent implements AfterViewInit {
     @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
+    protected videoLoading = signal(true);
+
+    onVideoLoad() {
+        this.videoLoading.set(false);
+    }
 
     ngAfterViewInit() {
         if (this.heroVideo && this.heroVideo.nativeElement) {
@@ -17,6 +22,11 @@ export class HeroComponent implements AfterViewInit {
             this.heroVideo.nativeElement.play().catch(err => {
                 console.warn('Hero video autoplay failed:', err);
             });
+
+            // If already loaded
+            if (this.heroVideo.nativeElement.readyState >= 3) {
+                this.videoLoading.set(false);
+            }
         }
     }
 }

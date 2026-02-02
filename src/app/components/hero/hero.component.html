@@ -77,8 +77,21 @@
 
                     <!-- Video Container -->
                     <div
-                        class="relative h-[calc(100%-2.5rem)] w-full bg-black group-hover:bg-gray-900 transition-colors">
-                        <video #heroVideo autoplay loop muted playsinline class="w-full h-full object-cover">
+                        class="relative h-[calc(100%-2.5rem)] w-full bg-black group-hover:bg-gray-900 transition-colors flex items-center justify-center">
+
+                        <!-- Loader -->
+                        @if (videoLoading()) {
+                        <div
+                            class="absolute inset-0 z-20 flex items-center justify-center bg-white/5 backdrop-blur-xl transition-opacity duration-500">
+                            <div class="loading-spinner">
+                                <div class="loading-spinner-inner"></div>
+                            </div>
+                        </div>
+                        }
+
+                        <video #heroVideo autoplay loop muted playsinline (loadeddata)="onVideoLoad()"
+                            [class.opacity-0]="videoLoading()" [class.opacity-100]="!videoLoading()"
+                            class="w-full h-full object-cover transition-opacity duration-1000 ease-in-out">
                             <source src="/top_view_vdieo.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>

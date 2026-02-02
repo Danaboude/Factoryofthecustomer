@@ -37,4 +37,17 @@
     .style-preserve-3d {
         transform-style: preserve-3d;
     }
+
+    .loading-spinner {
+        @apply relative flex items-center justify-center w-12 h-12;
+    }
+
+    .loading-spinner::after {
+        content: '';
+        @apply absolute inset-0 rounded-full border-2 border-brand-light-blue/20 animate-ping;
+    }
+
+    .loading-spinner-inner {
+        @apply w-full h-full border-4 border-brand-light-blue/10 border-t-brand-light-blue rounded-full animate-spin;
+    }
 }
