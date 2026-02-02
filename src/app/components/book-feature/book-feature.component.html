@@ -65,7 +65,7 @@
                             <!-- Video Content -->
                             <div class="h-full w-full bg-black relative">
                                 @if (videoSource()) {
-                                <video [src]="videoSource()" autoplay loop muted playsinline
+                                <video #bookVideo [src]="videoSource()" autoplay loop muted playsinline
                                     class="w-full h-full object-cover opacity-90 mix-blend-screen"></video>
                                 } @else {
                                 <div class="flex flex-col items-center justify-center h-full text-gray-500 space-y-4">

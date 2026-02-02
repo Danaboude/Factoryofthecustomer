@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -11,6 +11,15 @@ import { RouterModule } from '@angular/router';
 })
 export class BookFeatureComponent implements OnInit {
     protected videoSource = signal<string>('');
+
+    @ViewChild('bookVideo') set bookVideo(content: ElementRef<HTMLVideoElement>) {
+        if (content && content.nativeElement) {
+            content.nativeElement.muted = true;
+            content.nativeElement.play().catch(err => {
+                console.warn('Book video autoplay failed:', err);
+            });
+        }
+    }
 
     ngOnInit() {
         this.selectRandomVideo();

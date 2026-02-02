@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,15 @@ import { CommonModule } from '@angular/common';
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.css'
 })
-export class HeroComponent { }
+export class HeroComponent implements AfterViewInit {
+    @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
+
+    ngAfterViewInit() {
+        if (this.heroVideo && this.heroVideo.nativeElement) {
+            this.heroVideo.nativeElement.muted = true;
+            this.heroVideo.nativeElement.play().catch(err => {
+                console.warn('Hero video autoplay failed:', err);
+            });
+        }
+    }
+}
