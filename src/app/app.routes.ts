@@ -6,5 +6,7 @@ import { BookPageComponent } from './components/book-page/book-page.component';
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'contact', component: ContactComponent },
-    { path: 'book', component: BookPageComponent }
+    { path: 'book', component: BookPageComponent },
+    { path: 'events', loadComponent: () => import('./components/events/events.component').then(m => m.EventsComponent) },
+    { path: 'privacy-policy', loadComponent: () => import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent) }
 ];

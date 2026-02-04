@@ -1,7 +1,8 @@
 <!-- Differentiation Section -->
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How we are different?</h2>
+        <h2 class="text-6xl md:text-6xl font-black text-brand-dark-blue uppercase tracking-tighter leading-none mb-4">
+            How we are different?</h2>
         <p class="text-lg text-gray-500 max-w-4xl mx-auto mb-16">
             NetTECH is an invitation only private business network that only welcomes COO professionals looking for
             peers in i4.0.
@@ -10,40 +11,73 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
+            <!-- Card 1: NetTECH events -->
             <div
-                class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-gray-100 h-96 flex flex-col items-center justify-center p-8 text-center bg-[url('/Send%20us%20your%20request.jpg')] bg-cover bg-center">
-                <div class="absolute inset-0 bg-gray-900/60 transition-opacity group-hover:bg-gray-900/70"></div>
-                <div class="relative z-10 text-white">
-                    <svg class="w-16 h-16 mx-auto mb-4 text-brand-yellow" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    <h3 class="text-2xl font-bold bg-white/20 backdrop-blur-sm p-2 rounded">NetTECH events</h3>
-                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">We make your
-                        company smarter and customer proof thanks to our views on ultra connectivity and...</p>
+                class="bg-gray-200 h-[600px] flex flex-col items-center justify-center p-8 text-center relative group overflow-hidden border border-gray-300">
+                <!-- Background Image possibility or just color -->
+                <div class="absolute inset-0 bg-gray-200 z-0"></div>
+                <div class="relative z-10 flex flex-col items-center h-full justify-center">
+                    <p class="text-gray-500 mb-8 max-w-xs mx-auto leading-relaxed">
+                        We make your company smarter and customer proof thanks to our views on ultra connectivity and...
+                    </p>
+                    <div class="mb-6 text-brand-dark-blue">
+                        <!-- Handshake Icon -->
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11">
+                            </path>
+                        </svg>
+                    </div>
+                    <a routerLink="/events"
+                        class="text-4xl font-black text-white uppercase tracking-tighter cursor-pointer mb-6 drop-shadow-md">
+                        NetTECH events
+                    </a>
+                    <a routerLink="/events"
+                        class="bg-gray-400 text-white px-6 py-2 uppercase text-xs font-bold tracking-widest hover:bg-brand-dark-blue transition-colors cursor-pointer">
+                        Read More About NetTECH
+                    </a>
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2: Unique Methodology -->
             <div
-                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-brand-dark-blue h-96 flex flex-col items-center justify-center p-8 text-center text-white">
-                <h3 class="text-xl font-medium mb-2 text-brand-yellow">Unique</h3>
-                <h2 class="text-4xl font-bold bg-white/10 p-2 rounded w-full text-white">Methodology</h2>
-                <p class="mt-8 text-white/80">Bridge between management tools and i4.0 solutions.</p>
+                class="bg-brand-dark-blue -mt-4 md:-mt-8 h-[650px] flex flex-col items-center justify-center p-8 text-center relative shadow-2xl z-10">
+                <div class="flex flex-col items-center justify-center h-full">
+                    <div class="mb-8 text-brand-light-blue animate-spin-slow">
+                        <!-- Gear Icon -->
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-brand-light-blue/80 mb-4 max-w-xs mx-auto text-lg leading-tight">
+                        Bridge between management tools and i4.0 solutions.
+                    </p>
+                    <h3 class="text-4xl font-normal text-white mb-2">Unique</h3>
+                    <div class="bg-brand-dark-blue/50 p-2">
+                        <h2 class="text-4xl font-bold text-white bg-brand-dark-blue/30 px-4 py-1">Methodology</h2>
+                    </div>
+                </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Join NetTECH -->
             <div
-                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-brand-yellow/10 h-96 flex flex-col items-center justify-center p-8 text-center border-t-8 border-brand-yellow">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Your Result</h3>
-                <p class="text-gray-700 mb-8">NetTECH opens up a whole new universe of opportunities in i4.0 and
-                    Operational Technology management.</p>
-                <button
-                    class="bg-brand-dark-blue text-white px-6 py-3 rounded uppercase text-sm font-bold tracking-wider hover:bg-brand-yellow hover:text-brand-dark-blue transition-colors shadow-lg">Want
-                    to join NetTECH?</button>
+                class="bg-gray-100 h-[600px] flex flex-col items-center justify-center p-8 text-center border border-gray-300">
+                <div class="flex flex-col items-center justify-center h-full max-w-xs mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 leading-tight">
+                        netTECH opens up a whole new universe of opportunities in i4.0 and Operational Technology
+                        management.
+                    </h3>
+                    <a routerLink="/contact"
+                        class="bg-black text-white px-8 py-3 uppercase text-xs font-bold tracking-widest hover:bg-brand-yellow hover:text-black transition-colors cursor-pointer">
+                        Want to join NetTECH?
+                    </a>
+                </div>
             </div>
         </div>
     </div>

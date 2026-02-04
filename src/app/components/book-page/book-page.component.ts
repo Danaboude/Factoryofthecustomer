@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -9,8 +10,28 @@ import { environment } from '../../../environments/environment';
     imports: [CommonModule, FormsModule],
     templateUrl: './book-page.component.html',
 })
-export class BookPageComponent {
+export class BookPageComponent implements OnInit {
     isLoading = false;
+    showSuccessMessage = false;
+
+    constructor(private route: ActivatedRoute, private router: Router) { }
+
+    ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            if (params['success'] === 'true') {
+                this.showSuccessMessage = true;
+                this.router.navigate([], {
+                    queryParams: { success: null },
+                    queryParamsHandling: 'merge',
+                    replaceUrl: true
+                });
+            }
+        });
+    }
+
+    closeSuccessMessage() {
+        this.showSuccessMessage = false;
+    }
 
     // Form Model
     purchaseData = {
