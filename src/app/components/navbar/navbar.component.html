@@ -1,42 +1,83 @@
 <!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0 flex items-center">
-                <a href="/">
-                    <img class="h-12 w-auto" src="/logo.png" alt="Factory of the Customer">
-                </a>
-            </div>
-            <div class="hidden md:flex space-x-8 items-center">
+<div>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/">
+                        <img class="h-12 w-auto" src="/logo.png" alt="Factory of the Customer">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
 
-                <a routerLink="/events"
-                    class="text-brand-dark-blue hover:text-brand-yellow font-medium transition-colors cursor-pointer">Factory
-                    of the Customer</a>
-                <a routerLink="/books" routerLinkActive="text-brand-yellow font-bold"
-                    class="text-brand-dark-blue hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Books</a>
+                    <a routerLink="/events"
+                        class="text-brand-dark-blue hover:text-brand-yellow font-medium transition-colors cursor-pointer">Factory
+                        of the Customer</a>
+                    <a routerLink="/books" routerLinkActive="text-brand-yellow font-bold"
+                        class="text-brand-dark-blue hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Books</a>
 
-                <a routerLink="/content"
-                    class="text-brand-dark-blue hover:text-brand-yellow font-medium transition-colors cursor-pointer">Content</a>
-                <a routerLink="/contact"
-                    class="cursor-pointer px-5 py-2 bg-brand-dark-blue text-white font-bold rounded-full hover:bg-brand-yellow hover:text-brand-dark-blue transition-all shadow-md hover:shadow-lg">Contact
-                    us</a>
-                <!-- <button class="text-gray-500 hover:text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button> -->
+                    <a routerLink="/content"
+                        class="text-brand-dark-blue hover:text-brand-yellow font-medium transition-colors cursor-pointer">Content</a>
+                    <a routerLink="/contact"
+                        class="cursor-pointer px-5 py-2 bg-brand-dark-blue text-white font-bold rounded-full hover:bg-brand-yellow hover:text-brand-dark-blue transition-all shadow-md hover:shadow-lg">Contact
+                        us</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button (click)="toggleMobileMenu()"
+                        class="text-brand-dark-blue hover:text-brand-yellow focus:outline-none transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <!-- Mobile menu button -->
-            <div class="md:hidden flex items-center">
-                <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Panel (Outside nav for proper z-index) -->
+    <div *ngIf="mobileMenuOpen" class="fixed inset-0 z-[9999] md:hidden">
+        <!-- Backdrop -->
+        <div (click)="closeMobileMenu()" class="fixed inset-0 bg-black/80 backdrop-blur-sm animate-fade-in">
+        </div>
+
+        <!-- Menu Panel -->
+        <div
+            class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl z-[10000] animate-slide-in-right">
+            <!-- Header with Close Button -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-100">
+                <div class="flex items-center">
+                    <img class="h-10 w-auto" src="/logo.png" alt="Factory of the Customer">
+                </div>
+                <button (click)="closeMobileMenu()"
+                    class="text-gray-500 hover:text-brand-dark-blue focus:outline-none transition-colors">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
+
+            <!-- Navigation Links -->
+            <nav class="flex flex-col p-6 space-y-4">
+                <a routerLink="/events" (click)="closeMobileMenu()"
+                    class="text-brand-dark-blue hover:text-brand-yellow font-semibold text-lg transition-colors py-3 border-b border-gray-100">
+                    Factory of the Customer
+                </a>
+                <a routerLink="/books" (click)="closeMobileMenu()" routerLinkActive="text-brand-yellow"
+                    class="text-brand-dark-blue hover:text-brand-yellow font-semibold text-lg transition-colors py-3 border-b border-gray-100">
+                    Books
+                </a>
+                <a routerLink="/content" (click)="closeMobileMenu()"
+                    class="text-brand-dark-blue hover:text-brand-yellow font-semibold text-lg transition-colors py-3 border-b border-gray-100">
+                    Content
+                </a>
+                <a routerLink="/contact" (click)="closeMobileMenu()"
+                    class="mt-4 text-center px-6 py-3 bg-brand-dark-blue text-white font-bold rounded-full hover:bg-brand-yellow hover:text-brand-dark-blue transition-all shadow-md">
+                    Contact us
+                </a>
+            </nav>
         </div>
     </div>
-</nav>
+</div>
