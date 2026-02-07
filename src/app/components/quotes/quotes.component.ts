@@ -30,6 +30,16 @@ export class QuotesComponent {
             text: 'Fifteen years ago, I described Ives and his team as relentless pigs searching for the most valuable truffles. Now, their main goal is clear: find out what customers want and deliver solutions that meet those needs. As the Factory of the Customer, they connect people, tools, and data to deliver continuous value…',
             author: 'Luigi Neirynck',
             title: 'COO Wallglass, Owner of Scoup BV & founder Santé Belgium'
+        },
+        {
+            text: "Don’t look for yet another management fad or fashion in this book that will once again have disappeared from the horizon less than a year later. Read this book as an (ultimate) synthesis that reveals its richness through integration. This integration provides fertile ground for “rich & sustainable” organisation. Exactly what our economy, society, industry, their leaders and operators are craving.",
+            author: 'Geert Van Hootegem',
+            title: 'Professor Work & Organisation, KU Leuven, Centre for Sociological Research'
+        },
+        {
+            text: "It’s impressive that Ives, as a dedicated engineer, understands we need to learn from the past and get the basics right. This way, we can put change in the right perspective. As a historian, I can only praise this. Perspective is everything and the key to understanding. That’s what this book does: it helps us understand",
+            author: 'Frank Manders',
+            title: 'CEO Partners 2 Innovate'
         }
     ];
 }

@@ -1,0 +1,164 @@
+<!-- Books Section with Vertical Layout -->
+<div class="bg-white">
+    <!-- Hero Title Section -->
+    <section class="relative py-24 overflow-hidden"
+        style="background: linear-gradient(135deg, #21559d 0%, #1a4580 100%);">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0"
+                style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center space-y-8">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 rounded-full px-5 py-2.5"
+                    style="background-color: rgba(254, 179, 65, 0.15); border: 2px solid #feb341;">
+                    <svg class="w-5 h-5" fill="#feb341" viewBox="0 0 20 20">
+                        <path
+                            d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                    </svg>
+                    <span class="font-bold tracking-wider uppercase text-xs" style="color: #feb341;">Authored by Ives De
+                        Saeger</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-none"
+                    style="color: #cce0e2;">
+                    Manufacturing<br />
+                    <span style="color: #feb341;">Excellence</span><br />
+                    Library
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed"
+                    style="color: rgba(204, 224, 226, 0.9);">
+                    Transform your organization with insights on customer-centric manufacturing,
+                    cross-sector innovation, and leadership for the modern age
+                </p>
+
+                <!-- Features -->
+                <div class="flex flex-wrap justify-center gap-8 pt-8">
+                    <div class="flex items-center space-x-3" style="color: #cce0e2;">
+                        <svg class="w-6 h-6" fill="none" stroke="#feb341" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-base font-semibold">Customer-Centric Strategy</span>
+                    </div>
+                    <div class="flex items-center space-x-3" style="color: #cce0e2;">
+                        <svg class="w-6 h-6" fill="none" stroke="#feb341" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="text-base font-semibold">Innovation Frameworks</span>
+                    </div>
+                    <div class="flex items-center space-x-3" style="color: #cce0e2;">
+                        <svg class="w-6 h-6" fill="none" stroke="#feb341" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="text-base font-semibold">Leadership Transformation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @for (book of books; track book.id; let i = $index) {
+    <section class="py-24 overflow-hidden relative" [class.bg-gray-50]="i % 2 === 1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center justify-between">
+
+                <!-- Content Side -->
+                <div class="w-full lg:w-1/2 space-y-8" [class.order-2]="i % 2 === 0" [class.lg:order-1]="i % 2 === 0"
+                    [class.order-2]="i % 2 === 1" [class.lg:order-2]="i % 2 === 1">
+                    @if (i === 0) {
+                    <div class="inline-flex items-center space-x-2">
+                        <span class="flex h-3 w-3 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow"></span>
+                        </span>
+                        <span
+                            class="text-brand-dark-blue font-bold tracking-widest uppercase text-xs bg-brand-yellow/20 px-2 py-0.5 rounded">New
+                            Release</span>
+                    </div>
+                    }
+
+                    <h2
+                        class="text-5xl md:text-6xl font-black text-brand-dark-blue uppercase tracking-tighter leading-none">
+                        {{ book.title }}
+                    </h2>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="h-px bg-gray-300 w-12"></div>
+                        <p class="text-xl text-brand-dark-blue font-medium">{{ book.subtitle }}</p>
+                    </div>
+
+                    <p class="text-lg text-gray-600 leading-relaxed font-light max-w-xl">
+                        {{ book.description }}
+                    </p>
+
+                    <div class="flex items-center space-x-6">
+                        <div class="text-4xl font-bold text-brand-dark-blue">€{{ book.price }}</div>
+                        <div class="h-8 w-px bg-gray-300"></div>
+                        <div class="text-sm text-gray-500">
+                            <div>{{ book.details.pages }} pages</div>
+                            <div>{{ book.details.publisher }}</div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a [routerLink]="['/book', book.id]"
+                            class="cursor-pointer group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-brand-dark-blue rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark-blue hover:bg-brand-yellow hover:text-brand-dark-blue hover:shadow-lg">
+                            <span>View Details</span>
+                            <svg class="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Side (Book Frame) -->
+                <div class="w-full lg:w-1/2 flex justify-center" [class.lg:justify-end]="i % 2 === 0"
+                    [class.lg:justify-start]="i % 2 === 1" [class.order-1]="i % 2 === 0"
+                    [class.lg:order-2]="i % 2 === 0" [class.order-1]="i % 2 === 1" [class.lg:order-1]="i % 2 === 1">
+                    <!-- Book Frame -->
+                    <div class="relative w-[350px] h-[550px] perspective-1000 group">
+                        <div
+                            class="relative w-full h-full transition-transform duration-500 transform style-preserve-3d group-hover:rotate-y-[-5deg]">
+
+                            <!-- Book Cover (Front with Video/Image) -->
+                            <div
+                                class="absolute inset-0 bg-slate-800 rounded-r-xl rounded-l-sm shadow-[25px_25px_50px_rgba(0,0,0,0.5)] overflow-hidden border-l-4 border-slate-700">
+                                <!-- Spine Crease -->
+                                <div
+                                    class="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/50 to-transparent z-20 pointer-events-none">
+                                </div>
+
+                                <!-- Media Content -->
+                                <div class="h-full w-full bg-black relative flex items-center justify-center">
+                                    @if (book.video) {
+                                    <video [src]="book.video" autoplay loop muted playsinline
+                                        class="w-full h-full object-cover mix-blend-screen"></video>
+                                    } @else {
+                                    <img [src]="book.image" [alt]="book.title" class="w-full h-full object-cover">
+                                    }
+                                    <!-- Book Texture Overlay -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10 pointer-events-none">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    }
+</div>
